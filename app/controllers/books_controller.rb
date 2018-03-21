@@ -1,5 +1,9 @@
 class BooksController < ApplicationController
+
+    before_action :authenticate_user!, except: [:index, :show]
+    
     # Metodos CRUD
+
     def index
         @books = Book.all
     end
@@ -38,12 +42,14 @@ class BooksController < ApplicationController
         book = Book.find(params[:id])
         book.destroy
       
-        redirect_to books_path, notice: "El libro ha sido eliminado exitosamente"
+        redirect_to books_path
     end
 
     private
         def book_params
             params.require(:book).permit(:title, :author, :description, :image_url, :publication_date, :price)
         end
+    
+    
     
 end
