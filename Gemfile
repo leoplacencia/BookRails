@@ -54,7 +54,7 @@ gem 'devise'
 
 gem 'bcrypt', '~> 3.1.11'
 
-gem 'bootstrap', '~> 4.0.0.beta'
+gem 'bootstrap', '~> 4.3.1'
 
 group :production do
   gem 'pg'
